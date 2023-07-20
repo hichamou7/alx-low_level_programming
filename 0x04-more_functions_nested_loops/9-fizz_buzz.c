@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers from 1 to 100 with Fizz, Buzz, or FizzBuzz conditions
+ * main - Entry point of the Fizz-Buzz program
  *
- * Description: This program prints the numbers from 1 to 100, inclusive.
- *              However, for multiples of three, it prints "Fizz" instead
- *              of the number. For multiples of five, it prints "Buzz."
- *              For numbers that are multiples of both three and five,
- *              it prints "FizzBuzz." All output is separated by tabs.
+ * Description: This function prints the numbers from 1 to 100, following
+ *              the Fizz-Buzz rules. Multiples of three are replaced with
+ *              "Fizz", multiples of five with "Buzz", and multiples of
+ *              both three and five with "FizzBuzz". Each number or word
+ *              is separated by a space, and a newline is printed at the end.
  *
  * Return: Always 0 (success)
  */
-
 int main(void)
 {
 	int i;
