@@ -1,13 +1,24 @@
 #include "main.h"
 
 /**
- * _isupper - Checks if a character is uppercase.
- * @c: The character to be checked.
+ * _strlen - Returns the length of a string.
+ * @s: Pointer to the string whose length is to be calculated.
  *
- * Return: 1 if c is uppercase, 0 otherwise.
+ * Return: Length of the string (excluding the null-terminator).
  */
 
-int _isupper(int c)
+int _strlen(char *s)
 {
-	return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+	int length = 0;
+
+	if (s != NULL)
+	{
+		while (*s != '\0')
+		{
+			length++;
+			s++;
+		}
+	}
+
+	return (length);
 }
