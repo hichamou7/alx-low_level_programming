@@ -7,23 +7,16 @@
 
 void puts2(char *str)
 {
-	if (str == NULL)
-		return;
-
-	char tmp[1000];
-	int i, j;
-
-	/* Copy characters from str to tmp until null-terminator is found */
-	for (i = 0, j = 0; str[i] != '\0'; i += 2)
+	if (str != NULL)
 	{
-		tmp[j++] = str[i];
-	}
-	tmp[j] = '\0';
+		int i = 0;
 
-	/* Loop to print every character in tmp */
-	for (i = 0; tmp[i] != '\0'; i++)
-	{
-		_putchar(tmp[i]);
+		/* Print every other character until the null-terminator */
+		while (str[i] != '\0')
+		{
+			_putchar(str[i]);
+			i += 2;
+		}
 	}
 
 	_putchar('\n');
