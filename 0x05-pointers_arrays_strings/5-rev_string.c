@@ -1,13 +1,28 @@
 #include "main.h"
 
 /**
- * _isupper - Checks if a character is uppercase.
- * @c: The character to be checked.
- *
- * Return: 1 if c is uppercase, 0 otherwise.
+ * rev_string - Reverses a string in place.
+ * @s: Pointer to the string to be reversed.
  */
 
-int _isupper(int c)
+void rev_string(char *s)
 {
-	return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+	if (s != NULL)
+	{
+		int length = 0;
+		int start = 0;
+		char temp;
+
+		/* Calculate the length of the string */
+		while (s[length] != '\0')
+			length++;
+
+		/* Reverse the string in place */
+		for (start = 0; start < length / 2; start++)
+		{
+			temp = s[start];
+			s[start] = s[length - 1 - start];
+			s[length - 1 - start] = temp;
+		}
+	}
 }
