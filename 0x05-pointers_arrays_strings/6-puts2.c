@@ -15,7 +15,7 @@ void puts2(char *str)
 		while (str[i] != '\0')
 			i++;
 
-		str[i - 1] = '\0'; // Remove the null-terminator
+		str[i - 1] = '\0';
 
 		/* Print every other character */
 		i = 0;
