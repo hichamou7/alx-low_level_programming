@@ -1,13 +1,19 @@
 #include "main.h"
 
 /**
- * _isupper - Checks if a character is uppercase.
- * @c: The character to be checked.
- *
- * Return: 1 if c is uppercase, 0 otherwise.
+ * _puts - Prints a string followed by a new line to stdout.
+ * @str: Pointer to the string to be printed.
  */
 
-int _isupper(int c)
+void _puts(char *str)
 {
-	return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+	if (str != NULL)
+	{
+		while (*str != '\0')
+		{
+			_putchar(*str);
+			str++;
+		}
+		_putchar('\n');
+	}
 }
