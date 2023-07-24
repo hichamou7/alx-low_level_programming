@@ -1,13 +1,42 @@
 #include "main.h"
 
 /**
- * _isupper - Checks if a character is uppercase.
- * @c: The character to be checked.
- *
- * Return: 1 if c is uppercase, 0 otherwise.
+ * _strlen - Returns the length of a string.
+ * @str: Pointer to the string.
+ * Return: Length of the string.
  */
 
-int _isupper(int c)
+int _strlen(char *str)
 {
-	return ((c >= 'A' && c <= 'Z') ? 1 : 0);
+	int len = 0;
+
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+
+	return (len);
+}
+
+/**
+ * puts_half - Prints half of a string, followed by a new line.
+ * @str: Pointer to the string.
+ */
+
+void puts_half(char *str)
+{
+	if (str != NULL)
+	{
+		int length = _strlen(str);
+		int start = (length - 1) / 2;
+		int i;
+
+		for (i = start; i < length; i++)
+		{
+			_putchar(str[i]);
+		}
+	}
+
+	_putchar('\n');
 }
