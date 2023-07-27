@@ -1,42 +1,20 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * reverse_array - Reverses the content of an array of integers.
+ * @a: Pointer to the array of integers.
+ * @n: Number of elements in the array.
  */
 
-int _strlen(char *str)
+void reverse_array(int *a, int n)
 {
-	int len = 0;
+	int i, temp;
 
-	while (*str != '\0')
+	for (i = 0; i < n / 2; i++)
 	{
-		len++;
-		str++;
+		/* Swap the elements from both ends of the array */
+		temp = a[i];
+		a[i] = a[n - 1 - i];
+		a[n - 1 - i] = temp;
 	}
-
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
 }
