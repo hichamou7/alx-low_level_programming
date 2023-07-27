@@ -1,42 +1,21 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * string_toupper - Converts all lowercase letters of a string to uppercase.
+ * @str: Pointer to the string to be modified.
+ * Return: Pointer to the modified string.
  */
 
-int _strlen(char *str)
+char *string_toupper(char *str)
 {
-	int len = 0;
+	int i = 0;
 
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		len++;
-		str++;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32; /* Convert lowercase to uppercase */
+		i++;
 	}
 
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	return (str);
 }
