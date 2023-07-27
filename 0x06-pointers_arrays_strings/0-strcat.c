@@ -26,6 +26,6 @@ char *_strcat(char *dest, char *src)
 		src++;
 	}
 
-	*dest = '\0'; /* Add a null terminator at the end of the concatenated string */
+	*dest = '\0'; /* Add a null terminator at the end */
 
 	return (original_dest);
