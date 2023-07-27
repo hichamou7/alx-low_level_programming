@@ -1,42 +1,23 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
- */
-
-int _strlen(char *str)
-{
-	int len = 0;
-
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
+ * _strncpy - Copies a string.
+ * @dest: Pointer to the destination buffer.
+ * @src: Pointer to the source string to be copied.
+ * @n: Maximum number of bytes to be copied.
  * Return: Pointer to the resulting string dest.
  */
 
-char *_strcat(char *dest, char *src)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int dest_len = _strlen(dest);
 	int i;
 
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[i] = src[i];
 
-	dest[dest_len + i] = '\0';
+	/* Fill the remaining bytes with null bytes if n is greater than src length */
+	for (; i < n; i++)
+		dest[i] = '\0';
 
 	return (dest);
 }
