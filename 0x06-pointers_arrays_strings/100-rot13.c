@@ -12,19 +12,16 @@ char *rot13(char *str)
 	char *rot13_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *rot13_shifted = "nopqrstuvwxyzabcdefghijklm";
 	int i, j;
+	int is_letter;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; rot13_lower[j] != '\0' && rot13_upper[j] != '\0'; j++)
+		is_letter = (str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z');
+		j = is_letter ? (str[i] & 32) ? str[i] - 'a' : str[i] - 'A' : 0;
+
+		if (is_letter)
 		{
-			if (str[i] == rot13_lower[j] || str[i] == rot13_upper[j])
-			{
-				if (str[i] >= 'a' && str[i] <= 'z')
-					str[i] = rot13_shifted[j];
-				else
-					str[i] = rot13_shifted[j] - 32;
-				break;
-			}
+			str[i] = (str[i] & 32) ? rot13_shifted[j] - 'a' + 'A' : rot13_shifted[j];
 		}
 	}
 
