@@ -1,42 +1,20 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * _strcmp - Compares two strings.
+ * @s1: Pointer to the first string.
+ * @s2: Pointer to the second string.
+ * Return: An integer less than, equal to, or greater than zero if s1 is found,
+ * respectively, to be less than, to match, or be greater than s2.
  */
 
-int _strlen(char *str)
+int _strcmp(char *s1, char *s2)
 {
-	int len = 0;
-
-	while (*str != '\0')
+	while (*s1 && (*s1 == *s2))
 	{
-		len++;
-		str++;
+		s1++;
+		s2++;
 	}
 
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	return (*s1 - *s2);
 }
