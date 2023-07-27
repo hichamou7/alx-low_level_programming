@@ -1,42 +1,36 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * cap_string - Capitalizes all words of a string.
+ * @str: Pointer to the string to be capitalized.
+ * Return: Pointer to the capitalized string.
  */
 
-int _strlen(char *str)
+char *cap_string(char *str)
 {
-	int len = 0;
+	int i = 0;
 
-	while (*str != '\0')
+	/* Capitalize first letter if it is a lowercase letter */
+	if (str[i] >= 'a' && str[i] <= 'z')
+		str[i] = str[i] - 32;
+
+	while (str[i] != '\0')
 	{
-		len++;
-		str++;
+		/* Check for word separators and capitalize the next letter if lowercase */
+		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+		    str[i] == ',' || str[i] == ';' || str[i] == '.' ||
+		    str[i] == '!' || str[i] == '?' || str[i] == '"' ||
+		    str[i] == '(' || str[i] == ')' || str[i] == '{' || str[i] == '}')
+		{
+			i++;
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - 32;
+		}
+		else
+		{
+			i++;
+		}
 	}
 
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	return (str);
 }
