@@ -1,42 +1,28 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * leet - Encodes a string into 1337.
+ * @str: Pointer to the string to be encoded.
+ * Return: Pointer to the encoded string.
  */
 
-int _strlen(char *str)
+char *leet(char *str)
 {
-	int len = 0;
+	char *leet_letters = "aAeEoOtTlL";
+	char *leet_codes = "4433007711";
+	int i, j;
 
-	while (*str != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		len++;
-		str++;
+		for (j = 0; leet_letters[j] != '\0'; j++)
+		{
+			if (str[i] == leet_letters[j])
+			{
+				str[i] = leet_codes[j];
+				break;
+			}
+		}
 	}
 
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	return (str);
 }
