@@ -16,12 +16,14 @@ char *rot13(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		is_letter = (str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z');
+		is_letter = (str[i] >= 'a' && str[i] <= 'z') ||
+			(str[i] >= 'A' && str[i] <= 'Z');
 		j = is_letter ? (str[i] & 32) ? str[i] - 'a' : str[i] - 'A' : 0;
 
 		if (is_letter)
 		{
-			str[i] = (str[i] & 32) ? rot13_shifted[j] - 'a' + 'A' : rot13_shifted[j];
+			str[i] = (str[i] & 32) ? rot13_shifted[j] - 'a' + 'A' :
+				rot13_shifted[j];
 		}
 	}
 
