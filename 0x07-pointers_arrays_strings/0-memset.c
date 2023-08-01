@@ -1,42 +1,19 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @str: Pointer to the string.
- * Return: Length of the string.
+ * _memset - Fills memory with a constant byte.
+ * @s: Pointer to the memory area to be filled.
+ * @b: The constant byte to fill the memory with.
+ * @n: The number of bytes to fill.
+ * Return: Pointer to the memory area s.
  */
 
-int _strlen(char *str)
+char *_memset(char *s, char b, unsigned int n)
 {
-	int len = 0;
+	unsigned int i;
 
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
+	for (i = 0; i < n; i++)
+		s[i] = b;
 
-	return (len);
-}
-
-/**
- * _strcat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * Return: Pointer to the resulting string dest.
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int dest_len = _strlen(dest);
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-
-	dest[dest_len + i] = '\0';
-
-	return (dest);
+	return (s);
 }
