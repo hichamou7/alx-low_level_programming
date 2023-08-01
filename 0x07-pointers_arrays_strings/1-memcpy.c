@@ -1,25 +1,19 @@
 #include "main.h"
 
 /**
- * _strncat - Concatenates two strings.
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string to be concatenated.
- * @n: Maximum number of bytes from src to be appended.
- * Return: Pointer to the resulting string dest.
+ * _memcpy - Copies memory area.
+ * @dest: Pointer to the destination memory area.
+ * @src: Pointer to the source memory area.
+ * @n: The number of bytes to copy.
+ * Return: Pointer to the destination memory area.
  */
 
-char *_strncat(char *dest, char *src, int n)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	int dest_len = 0;
-	int i;
+	unsigned int i;
 
-	while (dest[dest_len] != '\0')
-		dest_len++;
-
-	for (i = 0; i < n && src[i] != '\0'; i++)
-		dest[dest_len + i] = src[i];
-
-	dest[dest_len + i] = '\0';
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
 
 	return (dest);
 }
