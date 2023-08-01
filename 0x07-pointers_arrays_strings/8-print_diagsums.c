@@ -1,28 +1,22 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * leet - Encodes a string into 1337.
- * @str: Pointer to the string to be encoded.
- * Return: Pointer to the encoded string.
+ * print_diagsums - Prints the sum of the two diagonals of a square matrix.
+ * @a: Pointer to the square matrix.
+ * @size: Size of the square matrix.
  */
-
-char *leet(char *str)
+void print_diagsums(int *a, int size)
 {
-	char *leet_letters = "aAeEoOtTlL";
-	char *leet_codes = "4433007711";
-	int i, j;
+	int i;
+	int sum1 = 0, sum2 = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; i < size; i++)
 	{
-		for (j = 0; leet_letters[j] != '\0'; j++)
-		{
-			if (str[i] == leet_letters[j])
-			{
-				str[i] = leet_codes[j];
-				break;
-			}
-		}
+		sum1 += a[i * size + i];
+		sum2 += a[i * size + (size - i - 1)];
 	}
 
-	return (str);
+	printf("Sum of main diagonal: %d\n", sum1);
+	printf("Sum of secondary diagonal: %d\n", sum2);
 }
