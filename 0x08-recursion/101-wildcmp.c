@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * leet - Encodes a string into 1337.
- * @str: Pointer to the string to be encoded.
- * Return: Pointer to the encoded string.
+ * wildcmp - Compares two strings considering wildcards.
+ * @s1: The first input string.
+ * @s2: The second input string with wildcards.
+ *
+ * Return: 1 if the strings are identical, 0 otherwise.
  */
-
-char *leet(char *str)
+int wildcmp(char *s1, char *s2)
 {
-	char *leet_letters = "aAeEoOtTlL";
-	char *leet_codes = "4433007711";
-	int i, j;
-
-	for (i = 0; str[i] != '\0'; i++)
+	if (*s2 == '*')
 	{
-		for (j = 0; leet_letters[j] != '\0'; j++)
-		{
-			if (str[i] == leet_letters[j])
-			{
-				str[i] = leet_codes[j];
-				break;
-			}
-		}
+		if (*(s2 + 1) == '*')
+			return (wildcmp(s1, s2 + 1));
+		else if (wildcmp(s1, s2 + 1))
+			return (1);
+		else
+			return (wildcmp(s1 + 1, s2));
 	}
 
-	return (str);
+	if (*s1 != *s2)
+		return (0);
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+
+	return (wildcmp(s1 + 1, s2 + 1));
 }
