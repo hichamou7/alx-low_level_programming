@@ -1,25 +1,19 @@
 #include "main.h"
 
 /**
- * _strpbrk - Searches a string for any of a set of bytes.
- * @s: Pointer to the string to search.
- * @accept: Pointer to the string containing the bytes to search for.
- * Return: Pointer to the byte in s that matches one of the bytes in accept,
- *         or NULL if no such byte is found.
+ * _pow_recursion - Returns the value of x raised to the power of y.
+ * @x: The base.
+ * @y: The exponent.
+ *
+ * Return: The value of x raised to the power of y, or -1 if y is negative (error).
  */
-
-char *_strpbrk(char *s, char *accept)
+int _pow_recursion(int x, int y)
 {
-	unsigned int i, j;
+	if (y < 0)
+		return (-1);
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[j])
-				return (s + i);
-		}
-	}
+	if (y == 0)
+		return (1);
 
-	return (NULL);
+	return (x * _pow_recursion(x, y - 1));
 }
