@@ -1,36 +1,36 @@
 #include "main.h"
 
 /**
- * _strstr - Finds the first occurrence of a substring in a string.
- * @haystack: The string to search within.
- * @needle: The substring to find.
+ * _sqrt_recursion - Returns the natural square root of a number.
+ * @n: The number to find the square root of.
  *
- * Return: A pointer to the beginning of the located substring,
- *         or NULL if the substring is not found.
+ * Return: The natural square root of n, or -1 if n does not have a natural square root.
  */
-char *_strstr(char *haystack, char *needle)
+int _sqrt_recursion(int n)
 {
-	char *h, *n;
+	if (n < 0)
+		return (-1);
 
-	if (*needle == '\0')
-		return (haystack);
+	if (n == 0 || n == 1)
+		return (n);
 
-	while (*haystack)
-	{
-		h = haystack;
-		n = needle;
+	return (find_sqrt(n, 1));
+}
 
-		while (*haystack && *n && *haystack == *n)
-		{
-			haystack++;
-			n++;
-		}
+/**
+ * find_sqrt - Helper function to find the square root recursively.
+ * @n: The number to find the square root of.
+ * @i: The current guess for the square root.
+ *
+ * Return: The natural square root of n, or -1 if no exact square root is found.
+ */
+int find_sqrt(int n, int i)
+{
+	if (i * i == n)
+		return (i);
 
-		if (*n == '\0')
-			return (h);
+	if (i * i > n)
+		return (-1);
 
-		haystack = h + 1;
-	}
-
-	return (NULL);
+	return (find_sqrt(n, i + 1));
 }
