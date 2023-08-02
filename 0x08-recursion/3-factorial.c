@@ -1,32 +1,18 @@
 #include "main.h"
 
 /**
- * _strspn - Gets the length of a prefix substring.
- * @s: Pointer to the string to search.
- * @accept: Pointer to the string containing the bytes to accept.
- * Return: Number of bytes in the initial segment of s consisting
- * only of bytes from accept.
+ * factorial - Returns the factorial of a given number.
+ * @n: The input number.
+ *
+ * Return: The factorial of n, or -1 if n is negative (error).
  */
-
-unsigned int _strspn(char *s, char *accept)
+int factorial(int n)
 {
-	unsigned int i, j, count;
+	if (n < 0)
+		return (-1);
 
-	count = 0;
+	if (n == 0)
+		return (1);
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[j])
-			{
-				count++;
-				break;
-			}
-		}
-		if (accept[j] == '\0')
-			break;
-	}
-
-	return (count);
+	return (n * factorial(n - 1));
 }
