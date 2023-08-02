@@ -1,19 +1,17 @@
 #include "main.h"
 
 /**
- * _memset - Fills memory with a constant byte.
- * @s: Pointer to the memory area to be filled.
- * @b: The constant byte to fill the memory with.
- * @n: The number of bytes to fill.
- * Return: Pointer to the memory area s.
+ * _puts_recursion - Prints a string followed by a new line.
+ * @s: The input string.
  */
-
-char *_memset(char *s, char b, unsigned int n)
+void _puts_recursion(char *s)
 {
-	unsigned int i;
+	if (*s == '\0')
+	{
+		_putchar('\n');
+		return;
+	}
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
-
-	return (s);
+	_putchar(*s);
+	_puts_recursion(s + 1);
 }
